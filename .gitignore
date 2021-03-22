@@ -1,1 +1,7 @@
-.idea
+#Composer
+vendor/
+composer.lock
+
+#Local files
+.idea/
+config.php
