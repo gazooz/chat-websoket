@@ -38,7 +38,7 @@ class Application
     {
         Loop::run(
             function (): Promise {
-                $this->logger = new Logger('app.php');
+                $this->logger = new Logger('Application');
                 $consoleHandler = new StreamHandler(getStdout());
                 $consoleHandler->setFormatter(new ConsoleFormatter);
                 $this->logger->pushHandler($consoleHandler);
@@ -46,13 +46,7 @@ class Application
                 $this->router = new Router();
                 $this->options = new Options();
 
-                $socketsMap = [
-                    '0.0.0.0:8085'
-                ];
-                $sockets = [];
-                foreach ($socketsMap as $uri) {
-                    $sockets[] = SocketServer::listen($uri);
-                }
+                $sockets = [SocketServer::listen('0.0.0.0:8085')];
 
                 foreach ($this->modules as $moduleConfig) {
                     if (isset($moduleConfig['id'], $moduleConfig['class']) && class_exists(

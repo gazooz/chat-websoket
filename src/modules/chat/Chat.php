@@ -19,7 +19,6 @@ class Chat implements Module
     public function init(): void
     {
         $websocket = new Websocket(new ChatClientHandler());
-
         $this->server->router->addRoute('GET', 'ws/chat', $websocket);
     }
 }

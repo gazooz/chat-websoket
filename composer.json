@@ -21,7 +21,7 @@
         "roave/security-advisories": "dev-latest"
     },
     "bin": [
-        "bin/app.php"
+        "bin/app"
     ],
     "autoload": {
         "psr-4": {"App\\": "src/"}
