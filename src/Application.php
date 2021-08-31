@@ -17,7 +17,7 @@ use function Amp\ByteStream\getStdout;
 class Application
 {
     //Todo: move to config
-    public array $sockets = ['127.0.0.1:80'];
+    public array $sockets = ['0.0.0.0:80'];
     public Router $router;
     public Logger $logger;
     public Options $options;
