@@ -47,7 +47,7 @@ class Application
                 $this->options = new Options();
 
                 $socketsMap = [
-                    '0.0.0.0:' . getenv('PORT'),
+                    '0.0.0.0:8085'
                 ];
                 $sockets = [];
                 foreach ($socketsMap as $uri) {
