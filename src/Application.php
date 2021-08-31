@@ -38,7 +38,7 @@ class Application
     {
         Loop::run(
             function (): Promise {
-                $this->logger = new Logger('app');
+                $this->logger = new Logger('app.php');
                 $consoleHandler = new StreamHandler(getStdout());
                 $consoleHandler->setFormatter(new ConsoleFormatter);
                 $this->logger->pushHandler($consoleHandler);
