@@ -20,6 +20,6 @@ class Chat implements Module
     {
         $websocket = new Websocket(new ChatClientHandler());
 
-        $this->server->router->addRoute('GET', '/chat', $websocket);
+        $this->server->router->addRoute('GET', 'ws/chat', $websocket);
     }
 }
