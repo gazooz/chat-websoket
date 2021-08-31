@@ -1,2 +1,2 @@
-php app.php &
+php bin/app.php &
 exec "$@"
