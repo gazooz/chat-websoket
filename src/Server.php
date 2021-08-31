@@ -2,16 +2,14 @@
 
 namespace App;
 
-use Amp\File;
 use Amp\Http\Server\HttpServer;
 use Amp\Http\Server\Options;
 use Amp\Http\Server\Router;
 use Amp\Log\ConsoleFormatter;
 use Amp\Log\StreamHandler;
 use Amp\Loop;
+use Amp\Promise;
 use Amp\Socket\Server as SocketServer;
-use Generator;
-use Monolog\Formatter\LineFormatter;
 use Monolog\Logger;
 
 use function Amp\ByteStream\getStdout;
@@ -39,13 +37,8 @@ class Server
     public function run()
     {
         Loop::run(
-            function (): Generator {
-                $file = yield File\open(__DIR__ . '/../logs/server.log', 'a');
-                $handler = new StreamHandler($file);
-                $handler->setFormatter(new LineFormatter());
+            function (): Promise {
                 $this->logger = new Logger('server');
-                $this->logger->pushHandler($handler);
-
                 $consoleHandler = new StreamHandler(getStdout());
                 $consoleHandler->setFormatter(new ConsoleFormatter);
                 $this->logger->pushHandler($consoleHandler);
@@ -59,7 +52,9 @@ class Server
                 }
 
                 foreach ($this->modules as $moduleConfig) {
-                    if (isset($moduleConfig['id'], $moduleConfig['class']) && class_exists($class = $moduleConfig['class'])) {
+                    if (isset($moduleConfig['id'], $moduleConfig['class']) && class_exists(
+                            $class = $moduleConfig['class']
+                        )) {
                         /** @var Module $module */
 
                         $module = new $class($this);
