@@ -1,4 +1,4 @@
-const connection = new WebSocket('ws://gazooz-chat.herokuapp.com/chat');
+const connection = new WebSocket('wss://gazooz-chat.herokuapp.com/chat');
 
 connection.onopen = () => {
     console.log('connected');
