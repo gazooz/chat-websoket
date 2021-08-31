@@ -1,6 +1,6 @@
 {
     "name": "gazooz/chat-websoket",
-    "description": "amphp websocket chat",
+    "description": "Amp php websocket chat",
     "authors": [
         {
             "name": "gazooz",
@@ -10,7 +10,6 @@
     "require": {
         "php": "^7.4",
         "ext-json": "*",
-        "ext-http": "*",
         "amphp/websocket-server": "^2.0",
         "amphp/http-server-router": "^1.0",
         "amphp/http-server-static-content": "^1.0",
@@ -19,10 +18,10 @@
     }
     ,
     "require-dev": {
-        "roave/security-advisories": "dev-master"
+        "roave/security-advisories": "dev-latest"
     },
     "bin": [
-        "bin/server"
+        "bin/app"
     ],
     "autoload": {
         "psr-4": {"App\\": "src/"}
