@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use App\Server;
+use App\Application;
 
 require __DIR__ . '/../vendor/autoload.php';
 $config = require __DIR__ . '/../config.php';
-(new Server($config))->run();
+(new Application($config))->run();

@@ -1,6 +1,6 @@
 {
     "name": "gazooz/chat-websoket",
-    "description": "amphp websocket chat",
+    "description": "Amp php websocket chat",
     "authors": [
         {
             "name": "gazooz",
@@ -22,7 +22,7 @@
         "roave/security-advisories": "dev-latest"
     },
     "bin": [
-        "bin/server"
+        "bin/app"
     ],
     "autoload": {
         "psr-4": {"App\\": "src/"}

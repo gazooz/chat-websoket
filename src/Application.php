@@ -14,8 +14,9 @@ use Monolog\Logger;
 
 use function Amp\ByteStream\getStdout;
 
-class Server
+class Application
 {
+    //Todo: move to config
     public array $sockets = ['127.0.0.1:8080'];
     public Router $router;
     public Logger $logger;
@@ -38,7 +39,7 @@ class Server
     {
         Loop::run(
             function (): Promise {
-                $this->logger = new Logger('server');
+                $this->logger = new Logger('app');
                 $consoleHandler = new StreamHandler(getStdout());
                 $consoleHandler->setFormatter(new ConsoleFormatter);
                 $this->logger->pushHandler($consoleHandler);
