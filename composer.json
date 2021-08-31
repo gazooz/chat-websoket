@@ -10,7 +10,6 @@
     "require": {
         "php": "^7.4",
         "ext-json": "*",
-        "ext-http": "*",
         "amphp/websocket-server": "^2.0",
         "amphp/http-server-router": "^1.0",
         "amphp/http-server-static-content": "^1.0",
