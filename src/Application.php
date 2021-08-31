@@ -17,7 +17,6 @@ use function Amp\ByteStream\getStdout;
 class Application
 {
     //Todo: move to config
-    public array $sockets = ['0.0.0.0:80'];
     public Router $router;
     public Logger $logger;
     public Options $options;
@@ -47,8 +46,9 @@ class Application
                 $this->router = new Router();
                 $this->options = new Options();
 
+                $socketsMap = ['0.0.0.0:' . getenv('PORT')];
                 $sockets = [];
-                foreach ($this->sockets as $uri) {
+                foreach ($socketsMap as $uri) {
                     $sockets[] = SocketServer::listen($uri);
                 }
 
