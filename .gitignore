@@ -1,0 +1,5 @@
+#Composer
+vendor/
+
+#Local files
+.idea/
